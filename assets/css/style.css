@@ -1,0 +1,461 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Julee&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #0a0b0f;
+    position: relative;
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px
+}
+
+header .logo img{
+    width: 100px;
+    height: 80%;
+}
+
+
+header .nav-hidden{
+    display: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+header .nav-visible{
+    display: initial;
+    opacity: 1;
+    transform: translateX(0%)
+}
+header nav ul{
+    display: flex;;
+}
+
+header nav ul li{
+    margin-right: 20px;
+}
+
+header nav ul li:last-child{
+    margin-right: 0px;
+}
+
+header nav ul li .button{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    outline: 1px solid #8B2306;
+    padding: 4px 20px;
+    position: relative;
+    transition: all 1s;
+    display: block;
+    overflow: hidden;
+    font-family: "Sora", sans-serif;
+    font-weight: 400;
+    transform: skewX(-35deg);
+}
+
+header nav ul li .button:hover{
+    color: #8B2306;
+}
+
+header nav ul li .button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width .6s;
+    
+}
+
+header nav ul li .button:hover::before{
+    width: 150%;
+}
+
+.video{
+    height: 100%;
+
+}
+
+.bg-video{
+    position: absolute;
+    max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    margin: 0 auto;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg-video::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(101.47deg, #0a0c10 26.38%, rgba(10, 12, 16, 0.7) 50.07%, #0A0C10 78.17%)
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    height: 100vh;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.container img {
+    width: 400px;
+    padding: 0 30px;
+    margin-bottom: 50px;
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+    animation-delay: 1s;
+
+}
+
+.container p{
+    color: white;
+    width: 65%;
+    font-size: 34px;
+    line-height: 50px;
+    font-family: "Julee", cursive;
+    padding: 0 30px;
+    transform: translateY(50px);
+    filter: blur(30px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+    animation-delay: 1.6s;
+}
+
+.title{
+    height: 84.5vh;
+}
+.kamui-hero{
+    display: flex;
+    align-items: end;
+}
+
+.image-hero{
+    width: 600px;
+    
+}
+
+
+.rect{
+    border: 2px solid #8B2306;
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    z-index: -3;
+    background-color: #8B2306;
+}
+
+.rect2{
+    border: 2px solid #8B2306;
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
+    z-index: -3;
+    background-color: #8B2306;
+}
+
+h2{
+    color: #ffffff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: "Sora", sans-serif;
+    text-align: center;
+    font-weight: 200;
+    margin-bottom: 15px;
+}
+
+.Wallpapers{
+    height: 90vh;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+.Wallpapers-left {
+    transform: translateX(-100%);
+  }
+  
+.Wallpapers-right {
+    transform: translateX(100%);
+  }
+
+.carrosel{
+    max-width: 1200px;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.carrosel .lista{
+    display: flex;
+    justify-content: center;
+}
+
+.carrosel .lista .itens{
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.carrosel .lista .itens img{
+    max-width: 1200px;
+    width: 98%;
+    height: 90vh;
+    object-fit: cover;
+    
+}
+
+.carrosel .lista .itens .conteudo{
+ position: absolute;  
+ top: 20%;
+ left: 50%;
+ width: 1200px;  
+ max-width: 98%;
+transform: translateX(-50%);
+box-sizing: border-box;
+color: white;
+text-shadow: 0 5px 10 px black;
+}
+
+.carrosel .lista .itens .conteudo .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.carrosel .lista .itens .conteudo button{
+    border: none;
+    background-color: white;
+}
+
+.carrosel .lista .itens .conteudo button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+.thumbnail{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 90px;
+    height: 140px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .item .conteudo{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnail .item .conteudo .titulo{
+    font-weight: bold;
+}
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(97, 0, 0, 0);
+    border: none;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+    color: rgb(255, 255, 255);
+    z-index: 100;
+    border: 2px solid #8B2306;
+    transition: .4s;
+}
+
+.arrows button:hover{
+    background-color: #eee;
+    color: #8B2306;
+}
+
+.carrosel .lista .itens:nth-child(1){
+    z-index: 1;
+}
+
+
+@keyframes showContent{
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0)
+    }
+}
+
+.carrosel.next .lista .itens:nth-child(1) img{
+    width: 90px;
+    height: 140px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+}
+
+@keyframes showImage{
+    to{
+        max-width: 1200px;
+        width: 98%;
+        height: 90vh;
+        left: 1%;
+        bottom: 0;
+        margin: 0 auto;
+        border-radius: 0;
+    }
+}
+
+.carrosel.next .thumbnail .item:nth-last-child(1){
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showThumbnail{
+    to{
+        width: 90px;
+    }
+}
+
+.carrosel.next .thumbnail{
+    transform: translateX(90px);
+    animation: transformThumbnail 1.0s linear 1 forwards;
+}
+
+@keyframes transformThumbnail{
+    to{
+        transform: translateX(0);
+    }
+}
+
+.carrosel.prev .lista .itens:nth-child(2){
+    z-index: 2;
+}
+
+.carrosel.prev .lista .itens:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+
+@keyframes outImage{
+    to{
+        width: 98px;
+        height: 140px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 20px;
+    }
+}
+
+.carrosel.prev .thumbnail .item:nth-child(1){
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+
+@keyframes contenOut{
+    to{
+        transform: translateY(-90px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+carrosel.next .arrows button,
+carrosel.prev .arrows button{
+    pointer-events: none;
+}
+
+.carrosel.next .time,
+.carrosel.prev .time{
+    width: 100%;
+    animation: timeRunning 1s linear 1 forwards;
+}
+
+@keyframes timeRunning{
+    to{
+        width: 0;
+    }
+}
+
+
