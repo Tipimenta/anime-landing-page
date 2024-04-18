@@ -2,23 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Julee&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
 
+
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
     padding: 0 10px;
-    background-color: #0a0b0f;
+    background-color: rgb(11, 11, 11);
     position: relative;
     height: 100vh;
     scroll-behavior: smooth;
 }
 
 header{
+    max-width: 1200px;
+    width: 100%;
     display: flex;
-    height: 80px;
+    height: 60px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px
+    padding: 0 30px;
+    position: fixed;
+    z-index: 999;
+    background-color: #151515b5;
 }
 
 header .logo img{
@@ -27,11 +37,13 @@ header .logo img{
 }
 
 
-header .nav-hidden{
-    display: none;
-    opacity: 0;
-    transform: translateX(100%);
+header .nav{
     transition: opacity 1.5s, transform 1.5s;
+    opacity: 0;
+}
+header .nav-hidden{
+    
+    transform: translateX(100%);
 }
 
 header .nav-visible{
@@ -142,7 +154,7 @@ header nav ul li .button:hover::before{
 }
 
 .container p{
-    color: white;
+    color: #9b9b9b;
     width: 65%;
     font-size: 34px;
     line-height: 50px;
@@ -168,27 +180,68 @@ header nav ul li .button:hover::before{
     
 }
 
+/* SECTION EPISÓDIOS */
+#episodios .container-episodios ul li{
+    padding: 10px 20px;
+    gap: 30px;
+    display: flex;
+    border: 1px solid #632615;
+    background-color: #151515;
+    margin-bottom: 16px;
+
+}
+
+#episodios .container-episodios ul li .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#episodios .container-episodios ul li .info h3{
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+#episodios .container-episodios ul li .info p{
+    color: #9b9b9b;
+    font-weight: 300;
+    font-size: 22px;
+    text-align: justify;
+}
+
+#episodios .container-episodios ul li img{
+    max-width: 260px;
+    width: 100%;
+}
+
+.ep{
+    opacity: 0;
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+/* ================================================================= */
 
 .rect{
-    border: 2px solid #8B2306;
+    border: 1px solid #8B2306;
     width: 450px;
     height: 450px;
     position: absolute;
     top: -10px;
     left: 0px;
     z-index: -3;
-    background-color: #8B2306;
+    background-color: #151515;
 }
 
 .rect2{
-    border: 2px solid #8B2306;
+    border: 1px solid #8B2306;
     width: 450px;
     height: 450px;
     position: absolute;
     bottom: -10px;
     right: 0px;
     z-index: -3;
-    background-color: #8B2306;
+    background-color: #151515;
 }
 
 h2{
@@ -199,6 +252,24 @@ h2{
     text-align: center;
     font-weight: 200;
     margin-bottom: 15px;
+    position: relative;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-repeat: no-repeat;
+     background-size: 80%;
+    animation: animate 5s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }
 
 .Wallpapers{
@@ -214,11 +285,11 @@ h2{
     transition: opacity 1.5s, transform 1.5s;
 }
 
-.Wallpapers-left {
+.left {
     transform: translateX(-100%);
   }
   
-.Wallpapers-right {
+.right {
     transform: translateX(100%);
   }
 
