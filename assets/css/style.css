@@ -685,7 +685,7 @@ carrosel.prev .arrows button {
     }
 
     .container {
-        height: 580px;
+        height: 650px;
     }
 
     .container img {
@@ -698,12 +698,12 @@ carrosel.prev .arrows button {
     }
 
     .bg-video::after {
-        height: 500px;
+        height: 700px;
     }
 
     .bg-video {
         width: 100%;
-        height: 500px;
+        height: 700px;
     }
 
     #episodios .container-episodios ul li {
