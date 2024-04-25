@@ -1,9 +1,10 @@
 @import "./reset.css";
+@import "./variables.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Julee&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap');
 
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -12,13 +13,14 @@ body {
     max-width: 1200px;
     width: 100%;
     padding: 0 10px;
-    background-color: rgb(11, 11, 11);
+    background-color: var(--main-bg-color);
     position: relative;
     height: 100vh;
     scroll-behavior: smooth;
 }
 
-header{
+/* INICIO SECTION HEADER */
+header .desktop {
     max-width: 1200px;
     width: 100%;
     display: flex;
@@ -27,48 +29,62 @@ header{
     align-items: center;
     padding: 0 30px;
     position: fixed;
-    z-index: 999;
-    background-color: #151515b5;
+    z-index: 998;
+    background-color: var(--bg-transparent-color)
 }
 
-header .logo img{
-    width: 100px;
+header .desktop .logo img {
+    max-width: 100px;
     height: 80%;
+    width: 100%;
+}
+
+header a img {
+    width: 70px;
 }
 
 
-header .nav{
+header .desktop nav {
     transition: opacity 1.5s, transform 1.5s;
     opacity: 0;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 5px;
 }
-header .nav-hidden{
-    
+
+header .desktop .nav-hidden {
+    padding: 0 5px;
     transform: translateX(100%);
 }
 
-header .nav-visible{
-    display: initial;
+header .desktop .nav-visible {
+    display: flex;
+    justify-content: end;
     opacity: 1;
+    padding: 0 5px;
     transform: translateX(0%)
 }
-header nav ul{
-    display: flex;;
+
+header .desktop nav ul {
+    display: flex;
+    ;
 }
 
-header nav ul li{
-    margin-right: 20px;
+header.desktop nav ul li {
+    margin-right: 10px;
 }
 
-header nav ul li:last-child{
+header .desktop nav ul li:last-child {
     margin-right: 0px;
 }
 
-header nav ul li .button{
+header .desktop nav ul li .button {
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-size: 14px;
     color: white;
-    outline: 1px solid #8B2306;
-    padding: 4px 20px;
+    outline: 1px solid var(--primary-color);
+    padding: 4px 8px;
     position: relative;
     transition: all 1s;
     display: block;
@@ -78,34 +94,99 @@ header nav ul li .button{
     transform: skewX(-35deg);
 }
 
-header nav ul li .button:hover{
-    color: #8B2306;
+header .desktop nav ul li .button:hover {
+    color: var(--primary-color)
 }
 
-header nav ul li .button::before{
+header .desktop nav ul li .button::before {
     content: '';
     position: absolute;
     top: 0;
     left: -40px;
     width: 0%;
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white-color);
     transform: skewX(35deg);
     z-index: -1;
     transition: width .6s;
-    
+
 }
 
-header nav ul li .button:hover::before{
+header .desktop nav ul li .button:hover::before {
     width: 150%;
 }
 
-.video{
-    height: 100%;
-
+.mobile {
+    position: fire;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    z-index: 999;
+    background-color: var(--bg-transparent-color);
+    display: none;
 }
 
-.bg-video{
+.topnav {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.topnav #myLinks {
+    display: none;
+    position: relative;
+    width: 40%;
+    float: right;
+    background-color: #151515b5;
+}
+
+
+.topnav a {
+    color: var(--white-color);
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Sora", sans-serif;
+    top: 0%;
+    right: 0%;
+    z-index: 999;
+}
+
+
+.topnav a.icon {
+    display: block;
+    position: absolute;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+
+.topnav a:hover {
+    margin-top: 7px;
+    margin-right: 10px;
+    border: 2px solid var(--primary-color);
+    color: var(--white-color);
+}
+
+
+.active {
+    background-color: var(--bg-transparent-color);
+}
+
+
+.video {
+    height: 100%;
+}
+
+.bg-video {
     position: absolute;
     max-width: 1200px;
     width: 100%;
@@ -119,7 +200,7 @@ header nav ul li .button:hover::before{
     overflow: hidden;
 }
 
-.bg-video::after{
+.bg-video::after {
     content: '';
     position: absolute;
     top: 0;
@@ -131,7 +212,7 @@ header nav ul li .button:hover::before{
     background: linear-gradient(101.47deg, #0a0c10 26.38%, rgba(10, 12, 16, 0.7) 50.07%, #0A0C10 78.17%)
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: self-start;
@@ -153,8 +234,8 @@ header nav ul li .button:hover::before{
 
 }
 
-.container p{
-    color: #9b9b9b;
+.container p {
+    color: var(--gray-color);
     width: 65%;
     font-size: 34px;
     line-height: 50px;
@@ -167,63 +248,69 @@ header nav ul li .button:hover::before{
     animation-delay: 1.6s;
 }
 
-.title{
+.title {
     height: 84.5vh;
 }
-.kamui-hero{
+
+.kamui-hero {
     display: flex;
     align-items: end;
 }
 
-.image-hero{
+.image-hero {
     width: 600px;
-    
 }
 
 /* SECTION EPISÓDIOS */
-#episodios .container-episodios ul li{
+
+#episodios .container-episodios ul {
+    max-width: 1200px;
+    width: 100%;
+}
+
+#episodios .container-episodios ul li {
     padding: 10px 20px;
     gap: 30px;
     display: flex;
-    border: 1px solid #632615;
-    background-color: #151515;
+    border: 1px solid var(--primary-color);
+    background-color: var(--gray-color2);
     margin-bottom: 16px;
 
 }
 
-#episodios .container-episodios ul li .info{
+#episodios .container-episodios ul li .info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-#episodios .container-episodios ul li .info h3{
-    color: #ffffff;
+#episodios .container-episodios ul li .info h3 {
+    color: var(--white-color);
     font-weight: 600;
     font-size: 30px;
 }
 
-#episodios .container-episodios ul li .info p{
-    color: #9b9b9b;
+#episodios .container-episodios ul li .info p {
+    color: var(--gray-color);
     font-weight: 300;
     font-size: 22px;
     text-align: justify;
 }
 
-#episodios .container-episodios ul li img{
+#episodios .container-episodios ul li img {
     max-width: 260px;
     width: 100%;
 }
 
-.ep{
+.ep {
     opacity: 0;
     transition: opacity 1.5s, transform 1.5s;
 }
 
 /* ================================================================= */
 
-.rect{
-    border: 1px solid #8B2306;
+.rect {
+    border: 1px solid var(--primary-color);
     width: 450px;
     height: 450px;
     position: absolute;
@@ -233,8 +320,8 @@ header nav ul li .button:hover::before{
     background-color: #151515;
 }
 
-.rect2{
-    border: 1px solid #8B2306;
+.rect2 {
+    border: 1px solid var(--primary-color);
     width: 450px;
     height: 450px;
     position: absolute;
@@ -244,35 +331,37 @@ header nav ul li .button:hover::before{
     background-color: #151515;
 }
 
-h2{
-    color: #ffffff;
+h2 {
+    margin-top: 5px;
+    color: var(--white-color);
     font-size: 30px;
     text-transform: uppercase;
     font-family: "Sora", sans-serif;
     text-align: center;
-    font-weight: 200;
+    font-weight: 400;
     margin-bottom: 15px;
     position: relative;
     letter-spacing: 4px;
     overflow: hidden;
     background: linear-gradient(90deg, #000, #fff, #000);
     background-repeat: no-repeat;
-     background-size: 80%;
+    background-size: 80%;
     animation: animate 5s linear infinite;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0)
 }
 
 @keyframes animate {
-  0% {
-    background-position: -500%;
-  }
-  100% {
-    background-position: 500%;
-  }
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
 }
 
-.Wallpapers{
+.Wallpapers {
     height: 90vh;
     max-width: 1200px;
     width: 100%;
@@ -287,52 +376,52 @@ h2{
 
 .left {
     transform: translateX(-100%);
-  }
-  
+}
+
 .right {
     transform: translateX(100%);
-  }
+}
 
-.carrosel{
+.carrosel {
     max-width: 1200px;
     width: 100%;
     height: 90vh;
     overflow: hidden;
 }
 
-.carrosel .lista{
+.carrosel .lista {
     display: flex;
     justify-content: center;
 }
 
-.carrosel .lista .itens{
+.carrosel .lista .itens {
     position: absolute;
     inset: 0 0 0 0;
     display: flex;
     justify-content: center;
 }
 
-.carrosel .lista .itens img{
+.carrosel .lista .itens img {
     max-width: 1200px;
     width: 98%;
     height: 90vh;
     object-fit: cover;
-    
+
 }
 
-.carrosel .lista .itens .conteudo{
- position: absolute;  
- top: 20%;
- left: 50%;
- width: 1200px;  
- max-width: 98%;
-transform: translateX(-50%);
-box-sizing: border-box;
-color: white;
-text-shadow: 0 5px 10 px black;
+.carrosel .lista .itens .conteudo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 1200px;
+    max-width: 98%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    color: var(--white-color);
+    text-shadow: 0 5px 10px var(--gray-color2)
 }
 
-.carrosel .lista .itens .conteudo .buttons{
+.carrosel .lista .itens .conteudo .buttons {
     display: grid;
     grid-template-columns: repeat(2, 130px);
     grid-template-rows: 40px;
@@ -340,18 +429,18 @@ text-shadow: 0 5px 10 px black;
     margin-top: 20px;
 }
 
-.carrosel .lista .itens .conteudo button{
+.carrosel .lista .itens .conteudo button {
     border: none;
-    background-color: white;
+    background-color: var(--white-color)
 }
 
-.carrosel .lista .itens .conteudo button:nth-child(2){
+.carrosel .lista .itens .conteudo button:nth-child(2) {
     background-color: transparent;
-    color: #eee;
-    border: 1px solid #eee;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
 }
 
-.thumbnail{
+.thumbnail {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -361,34 +450,23 @@ text-shadow: 0 5px 10 px black;
     gap: 20px;
 }
 
-.thumbnail .item{
+.thumbnail .item {
     width: 90px;
     height: 140px;
     flex-shrink: 0;
     position: relative;
 }
 
-.thumbnail .item img{
+.thumbnail .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
 }
 
-.thumbnail .item .conteudo{
+.arrows {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-}
-
-.thumbnail .item .conteudo .titulo{
-    font-weight: bold;
-}
-
-.arrows{
-    position: absolute;
-    top: 80%;
+    top: 85%;
     right: 52%;
     width: 300px;
     max-width: 30%;
@@ -397,7 +475,7 @@ text-shadow: 0 5px 10 px black;
     align-items: center;
 }
 
-.arrows button{
+.arrows button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -406,31 +484,31 @@ text-shadow: 0 5px 10 px black;
     font-weight: bold;
     font-size: large;
     transition: .5s;
-    color: rgb(255, 255, 255);
-    z-index: 100;
-    border: 2px solid #8B2306;
+    color: var(--white-color);
+    z-index: 999;
+    border: 2px solid var(--primary-color);
     transition: .4s;
 }
 
-.arrows button:hover{
-    background-color: #eee;
-    color: #8B2306;
+.arrows button:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
 }
 
-.carrosel .lista .itens:nth-child(1){
+.carrosel .lista .itens:nth-child(1) {
     z-index: 1;
 }
 
 
-@keyframes showContent{
-    to{
+@keyframes showContent {
+    to {
         opacity: 1;
         filter: blur(0);
         transform: translateY(0)
     }
 }
 
-.carrosel.next .lista .itens:nth-child(1) img{
+.carrosel.next .lista .itens:nth-child(1) img {
     width: 90px;
     height: 140px;
     position: absolute;
@@ -440,8 +518,8 @@ text-shadow: 0 5px 10 px black;
     animation: showImage 0.5s linear 1 forwards;
 }
 
-@keyframes showImage{
-    to{
+@keyframes showImage {
+    to {
         max-width: 1200px;
         width: 98%;
         height: 90vh;
@@ -452,42 +530,42 @@ text-shadow: 0 5px 10 px black;
     }
 }
 
-.carrosel.next .thumbnail .item:nth-last-child(1){
+.carrosel.next .thumbnail .item:nth-last-child(1) {
     width: 0;
     overflow: hidden;
     animation: showThumbnail 0.5s linear 1 forwards;
 }
 
-@keyframes showThumbnail{
-    to{
+@keyframes showThumbnail {
+    to {
         width: 90px;
     }
 }
 
-.carrosel.next .thumbnail{
+.carrosel.next .thumbnail {
     transform: translateX(90px);
     animation: transformThumbnail 1.0s linear 1 forwards;
 }
 
-@keyframes transformThumbnail{
-    to{
+@keyframes transformThumbnail {
+    to {
         transform: translateX(0);
     }
 }
 
-.carrosel.prev .lista .itens:nth-child(2){
+.carrosel.prev .lista .itens:nth-child(2) {
     z-index: 2;
 }
 
-.carrosel.prev .lista .itens:nth-child(2) img{
+.carrosel.prev .lista .itens:nth-child(2) img {
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     animation: outImage 0.5s linear 1 forwards;
 }
 
-@keyframes outImage{
-    to{
+@keyframes outImage {
+    to {
         width: 98px;
         height: 140px;
         border-radius: 20px;
@@ -496,16 +574,19 @@ text-shadow: 0 5px 10 px black;
     }
 }
 
-.carrosel.prev .thumbnail .item:nth-child(1){
-    width: 0;
+.thumbnail .item {
+    width: 90px;
+}
+
+.carrosel.prev .thumbnail .item:nth-child(1) {
     overflow: hidden;
     opacity: 0;
     animation: showThumbnail 0.5s linear 1 forwards;
 }
 
 
-@keyframes contenOut{
-    to{
+@keyframes contenOut {
+    to {
         transform: translateY(-90px);
         filter: blur(20px);
         opacity: 0;
@@ -513,20 +594,441 @@ text-shadow: 0 5px 10 px black;
 }
 
 carrosel.next .arrows button,
-carrosel.prev .arrows button{
+carrosel.prev .arrows button {
     pointer-events: none;
 }
 
 .carrosel.next .time,
-.carrosel.prev .time{
+.carrosel.prev .time {
     width: 100%;
     animation: timeRunning 1s linear 1 forwards;
 }
 
-@keyframes timeRunning{
-    to{
+@keyframes timeRunning {
+    to {
         width: 0;
     }
 }
 
+@media screen and (max-width: 770px) {
+    .container p {
+        font-size: 26px;
+        line-height: 30px;
+        width: 75%;
+    }
 
+    #episodios .container-episodios ul li {
+        flex-direction: column;
+    }
+
+    #episodios .container-episodios ul li img {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .thumbnail {
+        left: 35%;
+    }
+
+    .arrows {
+        top: 85%;
+        left: 10%;
+    }
+
+    .carrosel,
+    .Wallpapers,
+    .carrosel .lista .itens img,
+    .carrosel .lista .itens .conteudo,
+    .carrosel.next .lista .itens:nth-child(1) img {
+        max-width: 720px;
+        height: 700px;
+    }
+
+    @keyframes showImage {
+        to {
+            max-width: 720px;
+            width: 98%;
+            height: 700px;
+            left: 1%;
+            bottom: 0;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+    }
+
+    @keyframes showThumbnail{
+    to{
+        width: 90px;
+    }
+}
+
+@keyframes outImage {
+    to {
+        width: 98px;
+        height: 140px;
+        border-radius: 20px;
+        left: 35%;
+        bottom: 20px;
+    }
+}
+
+}
+
+@media screen and (max-width: 600px) {
+
+    header .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .container {
+        height: 580px;
+    }
+
+    .container img {
+        width: 180px;
+    }
+
+    .container p {
+        font-size: 22px;
+        line-height: 18px;
+    }
+
+    .bg-video::after {
+        height: 500px;
+    }
+
+    .bg-video {
+        width: 100%;
+        height: 500px;
+    }
+
+    #episodios .container-episodios ul li {
+        flex-direction: column;
+    }
+
+    #episodios .container-episodios ul li img {
+        max-width: 580px;
+        margin: 0 auto;
+    }
+
+    .rect {
+        width: 240px;
+    }
+
+    .thumbnail {
+        left: 20%;
+    }
+
+    .arrows {
+        position: absolute;
+        top: 85%;
+        left: 3%;
+        width: 80px;
+    }
+
+    .carrosel,
+    .Wallpapers,
+    .carrosel .lista .itens img,
+    .carrosel .lista .itens .conteudo,
+    .carrosel.next .lista .itens:nth-child(1) img {
+        max-width: 580px;
+        height: 500px;
+    }
+
+    @keyframes showImage {
+        to {
+            max-width: 580px;
+            width: 98%;
+            height: 500px;
+            left: 1%;
+            bottom: 0;
+            border-radius: 0;
+        }
+    }
+
+    .thumbnail .item {
+        width: 85px;
+    }
+
+    .thumbnail .item img {
+        width: 85px;
+    }
+
+    .carrosel.next .lista .itens:nth-child(1) img,
+    .thumbnail .item {
+        width: 85px;
+        height: 70px;
+    }
+
+    .carrosel.next .thumbnail {
+        transform: translateX(85px);
+    }
+
+    .thumbnail .item {
+        width: 85px;
+        height: 70px;
+    }
+
+
+    @keyframes contenOut {
+        to {
+            transform: translateY(-85px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes outImage {
+        to {
+            width: 85px;
+            height: 70px;
+            border-radius: 20px;
+            left: 20%;
+            bottom: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 470px) {
+
+    header .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .container {
+        height: 450px;
+    }
+
+    .container img {
+        width: 180px;
+    }
+
+    .container p {
+        font-size: 22px;
+        line-height: 18px;
+    }
+
+    .bg-video::after {
+        height: 100%;
+    }
+
+    .bg-video {
+        width: 100%;
+        height: 500px;
+    }
+
+    #episodios .container-episodios ul li {
+        flex-direction: column;
+    }
+
+    #episodios .container-episodios ul li img {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .rect,
+    .rect2 {
+        width: 240px;
+    }
+
+    .thumbnail {
+        left: 5%;
+    }
+
+    .arrows {
+        position: absolute;
+        top: 70%;
+        left: 3%;
+        width: 80px;
+    }
+
+    .carrosel,
+    .Wallpapers,
+    .carrosel .lista .itens img,
+    .carrosel .lista .itens .conteudo,
+    .carrosel.next .lista .itens:nth-child(1) img {
+        max-width: 450px;
+        height: 500px;
+    }
+
+    @keyframes showImage {
+        to {
+            max-width: 450px;
+            width: 98%;
+            height: 500px;
+            left: 1%;
+            bottom: 0;
+            border-radius: 0;
+        }
+    }
+
+    .thumbnail .item img {
+        width: 65px;
+    }
+
+    .carrosel.next .lista .itens:nth-child(1) img,
+    .thumbnail .item {
+        width: 65px;
+        height: 70px;
+    }
+
+    .carrosel.next .thumbnail {
+        transform: translateX(65px);
+    }
+
+    @keyframes showThumbnail {
+        to {
+            width: 55px;
+        }
+    }
+
+    @keyframes contenOut {
+        to {
+            transform: translateY(-65px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes outImage {
+        to {
+            width: 65px;
+            height: 70px;
+            border-radius: 20px;
+            left: 3%;
+            bottom: 20px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+
+    header .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    header {
+        width: 360px;
+    }
+
+    .container {
+        height: 550px;
+    }
+
+    .container img {
+        width: 180px;
+    }
+
+    .container p {
+        font-size: 22px;
+        line-height: 18px;
+    }
+
+    .bg-video::after {
+        height: 550px;
+    }
+
+    .bg-video {
+        width: 100%;
+        height: 550px;
+    }
+
+
+    .carrosel,
+    .Wallpapers,
+    .carrosel .lista .itens img,
+    .carrosel .lista .itens .conteudo,
+    .carrosel.next .lista .itens:nth-child(1) img {
+        max-width: 340px;
+        height: 500px;
+    }
+
+    @keyframes contenOut {
+        to {
+            transform: translateY(0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes showThumbnail {
+        to {
+            width: 55px;
+        }
+    }
+
+        @keyframes outImage {
+            to {
+                width: 55px;
+                height: 70px;
+                border-radius: 20px;
+                left: 0%;
+                bottom: 20px;
+            }
+        }
+
+        @keyframes showImage {
+            to {
+                max-width: 340px;
+                width: 98%;
+                height: 500px;
+                left: 1%;
+                bottom: 0;
+                border-radius: 0;
+            }
+        }
+
+        .thumbnail {
+            left: 3%;
+        }
+
+        .thumbnail .item {
+            width: 55px;
+        }
+
+        .thumbnail .item img {
+            width: 55px;
+        }
+
+        .carrosel.next .lista .itens:nth-child(1) img {
+            left: 0%;
+        }
+
+        .carrosel.next .lista .itens:nth-child(1) img,
+        .thumbnail .item {
+            width: 55px;
+            height: 70px;
+        }
+
+        .carrosel.next .thumbnail {
+            transform: translateX(55px);
+            animation: transformThumbnail 1.0s linear 1 forwards;
+        }
+
+        
+    @keyframes outImage {
+        to {
+            width: 65px;
+            height: 70px;
+            border-radius: 20px;
+            left: 3%;
+            bottom: 20px;
+        }
+    }
+
+
+    }

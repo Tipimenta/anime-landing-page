@@ -6,23 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anime-Ninja Kamui</title>
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body id="fullPage">
-  <header id="section1">
+  
+  <header id="section1 hero">
+    <div class="mobile">
+    <div class="topnav">
+      <a href="#home" class="active">
+        <img src="./assets/img/Ninja-Kamui-Logo-PNG.png" alt="logo ninja kamui" />
+      </a>
+      <div id="myLinks">
+        <a href="#hero" class="button">Sinopse</a>
+        <a href="#episodios" class="button">Episódios</a>
+        <a href="#wallpapers" class="button">Wallpapers</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+    <div class="desktop">
     <div class="logo">
       <img src="./assets/img/Ninja-Kamui-Logo-PNG.png" alt="logo ninja kamui" />
     </div>
+    
+    <!-- Top Navigation Menu -->    
+    
     <nav class="nav right">
-      <ul>
-        <li><a href="" class="button">Sinopse</a></li>
+      <ul class="desktop-menu">
+        <li><a href="#hero" class="button">Sinopse</a></li>
         <li><a href="#episodios" class="button">Episódios</a></li>
         <li><a href="#wallpapers" class="button">Wallpapers</a></li>
       </ul>
     </nav>
+  </div>
   </header>
-  <section class="container">
-    <img src="./assets/img/Ninja-Kamui-Logo-PNG.png" alt="" class="anime-title" />
+  <section id="hero" class="container">
+    <img href="#logo" src="./assets/img/Ninja-Kamui-Logo-PNG.png" alt="" class="anime-title" />
     <p>
       Ninja Kamui conta a história de Joe Higan, um ex-ninja que escapou do
       seu clã e se escondeu de um passado violento. Porém, Higan acabou
@@ -134,7 +158,6 @@
   <h2>WALLPAPERS</h2>
   <section class="Wallpapers left" id="wallpapers">
     <div class="rect"></div>
-
 
     <div class="carrosel">
 
